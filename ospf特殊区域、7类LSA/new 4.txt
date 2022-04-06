@@ -1,0 +1,20 @@
+sys
+sys R4
+int g0/0/0
+ip ad 24.0.0.2 24
+int loop0
+ip ad 172.16.0.1 24
+int loop1
+ip ad 172.16.1.1 24
+int loop2
+ip ad 172.16.2.1 24
+int loop3
+ip ad 172.16.3.1 24
+ospf 1 router-id 4.4.4.4
+a 24
+net 24.0.0.2 0.0.0.0
+net 172.16.0.1 0.0.0.0
+net 172.16.1.1 0.0.0.0
+net 172.16.2.1 0.0.0.0
+net 172.16.3.1 0.0.0.0
+stub

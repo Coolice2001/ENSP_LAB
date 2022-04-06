@@ -1,0 +1,9 @@
+sys
+sys R2
+int g0/0/0
+ip ad 25.0.0.1 8
+int g0/0/2
+ip ad 12.0.0.2 8
+rip 1
+net 12.0.0.0
+net 25.0.0.0

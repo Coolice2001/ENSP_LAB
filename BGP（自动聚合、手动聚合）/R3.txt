@@ -1,0 +1,32 @@
+sys
+sys R3
+int g0/0/1
+ip ad 23.0.0.2 24
+int loop3
+ip ad 3.3.3.3 32
+int loop 33
+ip ad 172.16.1.1 24
+int loop 34
+ip ad 172.16.2.1 24
+int loop 35
+ip ad 172.16.3.1 24
+int loop 36
+ip ad 172.16.4.1 24
+ip route-static 0.0.0.0 0 23.0.0.1
+bgp 3
+peer 2.2.2.2 as 12
+peer 2.2.2.2 connect-interface loop3
+peer 2.2.2.2 ebgp-max-hop 2
+peer 2.2.2.2 password cipher 123qwe
+network 3.3.3.3 32
+net 172.16.1.1 24
+net 172.16.2.1 24
+import-route direct route-policy coolice
+acl 2000
+rule 5 permit so 172.16.3.1 0.0.0.255
+rule 10 permit so 172.16.4.1 0.0.0.255
+q
+route-policy coolice permit node 10
+if-match acl 2000
+bgp 3
+aggregate 172.16.0.0 21 detail-suppressed
