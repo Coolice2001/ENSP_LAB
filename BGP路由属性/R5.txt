@@ -1,0 +1,13 @@
+sys
+sys R5
+int g0/0/1
+ip ad 15.0.0.2 8
+int loop5
+ip ad 5.5.5.5 32
+int loop9
+ip ad 9.9.9.9 32
+int loop6
+ip ad 6.6.6.6 32
+router id 5.5.5.5
+bgp 5
+peer 15.0.0.1 as 123
