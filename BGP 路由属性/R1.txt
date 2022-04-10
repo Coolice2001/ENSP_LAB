@@ -1,0 +1,23 @@
+sys
+sys R1
+int g0/0/0
+ip ad 13.0.0.1 8
+int e0/0/1
+ip ad 12.0.0.1 8
+int g0/0/1
+ip ad 15.0.0.1 8
+int loop1
+ip ad 1.1.1.1 32
+ospf 1 router-id 1.1.1.1
+a 0
+net 1.1.1.1 0.0.0.0
+net 12.0.0.1 0.0.0.0
+net 13.0.0.1 0.0.0.0
+net 15.0.0.1 0.0.0.0
+router id 1.1.1.1
+bgp 123
+peer 15.0.0.2 as 5
+peer 2.2.2.2 as 123
+peer 2.2.2.2 con lo1
+peer 3.3.3.3 as 123
+peer 3.3.3.3 con lo1

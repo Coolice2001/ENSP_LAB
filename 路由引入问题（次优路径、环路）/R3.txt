@@ -1,0 +1,14 @@
+sys
+sys R3
+ip route-static 172.16.0.0 24 null0
+ip route-static 172.16.0.0 25 null0
+int g0/0/0
+ip ad 34.0.0.1 8
+int  g0/0/1
+ip ad 23.0.0.2 8
+int loop3
+ip ad 3.3.3.3 32
+rip 1
+version 2
+net 23.0.0.0
+net 34.0.0.0

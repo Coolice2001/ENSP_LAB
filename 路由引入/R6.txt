@@ -1,0 +1,7 @@
+sys
+sys R6
+int g0/0/0
+ip ad 36.0.0.2 8
+ospf 1 router-id  6.6.6.6
+a 0
+net 36.0.0.2 0.0.0.0

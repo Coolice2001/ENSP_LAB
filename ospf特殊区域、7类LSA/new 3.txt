@@ -1,0 +1,13 @@
+sys
+sys R3
+int g0/0/0
+ip ad 13.0.0.2 24
+int g0/0/1
+ip ad 35.0.0.1 24
+ospf 1 router-id 3.3.3.3
+a 13
+vlink-peer 1.1.1.1
+net 13.0.0.2 0.0.0.0
+a 35
+net 35.0.0.1 0.0.0.0
+stub no-summary
