@@ -1,0 +1,17 @@
+sys
+sys R4
+int g0/0/0
+ip ad 24.0.0.2 8
+int g0/0/1
+ip ad 34.0.0.2 8
+int loop4
+ip ad 4.4.4.4 32
+int loop8
+ip ad 8.8.8.8 32
+int loop7
+ip ad 7.7.7.7 32
+router id 4.4.4.4
+bgp 4
+peer 24.0.0.1 as 123
+peer 34.0.0.1 as 123
+net 4.4.4.4

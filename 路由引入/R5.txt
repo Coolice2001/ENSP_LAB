@@ -1,6 +1,0 @@
-sys
-sys R5
-int g0/0/0
-ip ad 25.0.0.2 8
-rip 1
-net 25.0.0.0

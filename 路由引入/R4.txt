@@ -1,8 +1,0 @@
-sys
-sys R4
-int g0/0/3
-ip ad 14.0.0.2 8
-int loop0
-ip ad 4.4.4.4 32
-q
-ip route-static 0.0.0.0 0 14.0.0.1
