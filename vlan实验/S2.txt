@@ -1,0 +1,18 @@
+ sys
+ sys S2
+ vlan batch 10 20 100 200
+ int g0/0/1
+ p l h
+ p h p v 100
+ p h u v 10 20 100 200
+ int g0/0/2
+ p l h
+ p h p v 200
+ p h u v 10 20 100 200
+ int g0/0/3
+ p l t
+ p t a v 10 20 100 200
+ int g0/0/4
+ p l t 
+ p t a v 10 20 100 200
+ 
