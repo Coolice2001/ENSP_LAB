@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UNICODE" ?>
+<topo version="1.3.00">
+    <devices>
+        <dev id="020C5DFB-DA5D-44c3-BB06-2FA85FDA4245" name="AR1" poe="0" model="AR3260" settings="" system_mac="00-E0-FC-7C-67-CC" com_port="2000" bootmode="0" cx="73.000000" cy="73.000000" edit_left="91" edit_top="125">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="GE" count="1" />
+                <interface sztype="Ethernet" interfacename="GE" count="2" />
+                <interface sztype="Serial" interfacename="Serial" count="2" />
+            </slot>
+            <slot isMainBoard="0" id="3" type="521" />
+        </dev>
+        <dev id="6AD1BBA2-8FC3-4f7c-A075-E8FBD013577B" name="AR2" poe="0" model="AR3260" settings="" system_mac="00-E0-FC-73-3E-3D" com_port="2001" bootmode="0" cx="473.000000" cy="73.000000" edit_left="506" edit_top="126">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="GE" count="1" />
+                <interface sztype="Ethernet" interfacename="GE" count="2" />
+                <interface sztype="Serial" interfacename="Serial" count="2" />
+            </slot>
+            <slot isMainBoard="0" id="3" type="521" />
+        </dev>
+    </devices>
+    <lines>
+        <line srcDeviceID="020C5DFB-DA5D-44c3-BB06-2FA85FDA4245" destDeviceID="6AD1BBA2-8FC3-4f7c-A075-E8FBD013577B">
+            <interfacePair lineName="Serial" srcIndex="3" srcBoundRectIsMoved="1" srcBoundRect_X="143.183762" srcBoundRect_Y="100.000000" srcOffset_X="-4.000000" srcOffset_Y="7.000000" tarIndex="3" tarBoundRectIsMoved="1" tarBoundRect_X="456.816223" tarBoundRect_Y="100.000000" tarOffset_X="-47.000000" tarOffset_Y="9.000000" />
+        </line>
+    </lines>
+    <shapes />
+    <txttips>
+        <txttip left="48" top="191" right="301" bottom="348" content="sys&#x0D;&#x0A;sys R1&#x0D;&#x0A;int lo1&#x0D;&#x0A;ip ad 1.1.1.1 32&#x0D;&#x0A;int s4/0/0&#x0D;&#x0A;link-protocol hdlc&#x0D;&#x0A;y&#x0D;&#x0A;ip ad un int lo1&#x0D;&#x0A;q&#x0D;&#x0A;ip route-static 2.2.2.2 32 s4/0/0" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="48" top="359" right="301" bottom="501" content="sys&#x0D;&#x0A;sys R2&#x0D;&#x0A;int lo2&#x0D;&#x0A;ip ad 2.2.2.2 32&#x0D;&#x0A;int s4/0/0&#x0D;&#x0A;link-protocol hdlc&#x0D;&#x0A;y&#x0D;&#x0A;ip ad un int lo2&#x0D;&#x0A;ip route-static 1.1.1.1 32 s4/0/0" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="47" top="161" right="81" bottom="178" content="hdlc" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="368" top="165" right="455" bottom="182" content="ppp-pap认证" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="357" top="197" right="686" bottom="386" content="sys&#x0D;&#x0A;sys R1&#x0D;&#x0A;int lo1&#x0D;&#x0A;ip ad 1.1.1.1 32&#x0D;&#x0A;int s4/0/0&#x0D;&#x0A;link-protocol ppp&#x0D;&#x0A;ip ad un int lo1&#x0D;&#x0A;aaa&#x0D;&#x0A;local-user coolice password cipher 123.qwe&#x0D;&#x0A;local-user coolice service-type ppp&#x0D;&#x0A;int s4/0/0&#x0D;&#x0A;ppp authentication-mode pap" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="358" top="403" right="740" bottom="529" content="sys&#x0D;&#x0A;sys R2&#x0D;&#x0A;int lo2&#x0D;&#x0A;ip ad 2.2.2.2 32&#x0D;&#x0A;int s4/0/0&#x0D;&#x0A;link-protocol ppp&#x0D;&#x0A;ip ad un int lo2&#x0D;&#x0A;ppp pap local-user coolice password cipher 123.qwe" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="74" top="52" right="131" bottom="69" content=" 认证方" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="487" top="49" right="551" bottom="66" content="被认证方" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="806" top="203" right="1135" bottom="392" content="sys&#x0D;&#x0A;sys R1&#x0D;&#x0A;int lo1&#x0D;&#x0A;ip ad 1.1.1.1 32&#x0D;&#x0A;int s4/0/0&#x0D;&#x0A;link-protocol ppp&#x0D;&#x0A;ip ad un int lo1&#x0D;&#x0A;aaa&#x0D;&#x0A;local-user coolice password cipher 123.qwe&#x0D;&#x0A;local-user coolice service-type ppp&#x0D;&#x0A;int s4/0/0&#x0D;&#x0A;ppp authentication-mode chap" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="803" top="407" right="1049" bottom="549" content="sys&#x0D;&#x0A;sys R2&#x0D;&#x0A;int lo2&#x0D;&#x0A;ip ad 2.2.2.2 32&#x0D;&#x0A;int s4/0/0&#x0D;&#x0A;link-protocol ppp&#x0D;&#x0A;ip ad un int lo2&#x0D;&#x0A;ppp chap user coolice&#x0D;&#x0A;ppp chap password cipher 123.qwe" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="806" top="174" right="901" bottom="191" content="ppp-chap认证" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+    </txttips>
+</topo>
