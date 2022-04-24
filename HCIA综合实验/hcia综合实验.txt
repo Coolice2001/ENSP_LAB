@@ -1,0 +1,15 @@
+【配置说明】
+配置所需的ip地址，都已在拓扑图上标注。
+【配置要求】
+配置Telnet,要求所有网络设备均支持远程管理，密码为admin。
+配置Trunk，交换机之间的链路均为Trunk模式。
+配置VLAN，在SW2和SW3上创建相关VLAN，关联4台PC到对应的VLAN接口。
+配置MLS，通过SW1实现VLAN间路由。
+配置DHCP，使SW1可以为各个VLAN内主机分配地址信息。
+配置STP，使SW1成为所有VLAN的根桥，要求手动修改优先级为4096。
+配置OSPF，企业内网运行OSPF 1。
+配置缺省和NAT，在R1上配置PAT（只需要转换四个VLAN网段）。
+配置ppp，R1和R2之间封装协议为ppp，使用CHAP双向认证，密码为love。
+配置OSPF，R2和R3和R4之间运行OSPF 2。
+配置DNS，可以通过www.coolice.com访问HTTP服务器，通过www.moive.com访问FTP服务器。
+配置ACL，在R1上配置ACL，拒绝VLAN20的主机通过浏览器访问HTTP服务器，其他流量不受影响。

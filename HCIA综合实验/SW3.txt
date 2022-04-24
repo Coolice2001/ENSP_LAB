@@ -1,0 +1,45 @@
+sys
+sys SW3
+stp priority 0
+dhcp en
+vlan batch 10 20 30 40 13
+int vlanif 10
+ip ad 192.168.10.254 24
+dhcp select int
+dhcp server dns 3.0.0.1
+int vlanif 20
+ip ad 192.168.20.254 24
+dhcp server dns 3.0.0.1
+dhcp select int
+int vlanif 30
+ip ad 192.168.30.254 24
+dhcp select int
+dhcp server dns 3.0.0.1
+int vlanif 40
+ip ad 192.168.40.254 24
+dhcp select int
+dhcp server dns 3.0.0.1
+int vlanif 13
+ip ad 192.168.13.3 24
+int g0/0/1
+p l t
+p t a v 10 20 30 40
+int g0/0/2
+p l t
+p t a v 10 20 30 40
+int g0/0/3
+p l a
+p d v 13
+
+ospf 1 router-id 2.2.2.2
+a 0
+net 192.168.10.0 0.0.0.255
+net 192.168.20.0 0.0.0.255
+net 192.168.30.0 0.0.0.255
+net 192.168.40.0 0.0.0.255
+net 192.168.13.3 0.0.0.255
+
+acl 2000
+rule permit source any
+int s4/0/0
+nat outbound 2000

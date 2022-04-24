@@ -1,0 +1,15 @@
+sys
+sys SW2
+vlan batch 10 20 30 40
+int e0/0/1
+p l a
+p d v 30
+int e0/0/2
+p l a
+p d v 40
+int e0/0/3
+p l t
+p t a v 10 20 30 40
+int e0/0/4
+p l t
+p t a v 10 20 30 40
