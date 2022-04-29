@@ -1,0 +1,59 @@
+sys
+sys SW1
+dhcp enable
+vlan batch 10 20 14
+int vlanif 10
+ip ad 192.168.10.1 24
+int vlanif 20
+ip ad 192.168.20.1 24
+int vlanif 14
+ip ad 192.168.14.1 24
+
+int g0/0/1
+p l t
+p t a v 10 20
+int g0/0/2
+p l t
+p t a v 10 20 14
+int eth-trunk 0
+p l t
+p t a v 10 20
+int g0/0/3
+eth-trunk 0
+int g0/0/4
+eth-trunk 0
+q
+stp mode mstp
+stp region-configuration
+region-name coolice
+revision-level 1
+instance 10 vlan 10
+instance 20 vlan 20
+active region-configuration
+q
+stp instance 10 priority 0
+stp instance 20 priority 4096
+
+ip pool vlan10
+network 192.168.10.0 mask 255.255.255.0
+gateway-list 192.168.10.254
+excluded-ip-address 192.168.10.1 192.168.10.100
+ip pool vlan20
+network 192.168.20.0 mask 255.255.255.0
+gateway-list 192.168.20.254
+excluded-ip-address 192.168.20.1 192.168.20.100
+int vlanif 10
+dhcp select global
+int vlanif 20
+dhcp select global
+
+ospf 1 router-id 1.1.1.1
+a 0
+net 192.168.0.0 0.0.255.255
+
+int vlanif 10
+vrrp vrid 10 virtual-ip 192.168.10.254
+vrrp vrid 10 priority 101
+vrrp vrid 10 track interface g0/0/2 reduced 2
+int vlanif 20
+vrrp vrid 20 virtual-ip 192.168.20.254

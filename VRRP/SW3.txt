@@ -1,0 +1,26 @@
+sys
+sys SW3
+vlan batch 10 20
+int g0/0/1
+p l a
+p d v 10
+stp edged-port enable
+int g0/0/2
+p l a
+p d v 20
+stp edged-port enable
+int g0/0/3
+p l t
+p t a v 10 20
+int g0/0/4
+p l t
+p t a v 10 20
+q
+stp bpdu-protection
+stp mode mstp
+stp region-configuration
+region-name coolice
+revision-level 1
+instance 10 vlan 10
+instance 20 vlan 20
+active region-configuration

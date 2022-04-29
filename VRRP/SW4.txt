@@ -1,0 +1,33 @@
+sys
+sys SW4
+vlan batch 10 20 14 24 100
+int vlanif 14
+ip ad 192.168.14.4 24
+int vlanif 24
+ip ad 192.168.24.4 24
+int vlanif 100
+ip ad 1.1.100.4 8
+int g0/0/1
+p l t
+p t a v 10 14 20
+int g0/0/2
+p l t
+p t a v 10 20 24
+int g0/0/3
+p l a
+p d v 100
+q
+stp mode mstp
+stp region-configuration
+region-name coolice
+revision-level 1
+instance 10 vlan 10
+instance 20 vlan 20
+active region-configuration
+q
+stp instance 0 priority 0
+
+ospf 1 router-id 4.4.4.4
+a 0
+net 192.168.0.0 0.0.255.255
+net 1.1.100.4 0.0.0.0
