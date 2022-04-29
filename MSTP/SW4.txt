@@ -1,0 +1,24 @@
+sys
+sys SW4
+vlan batch 11 12
+int e0/0/1
+p l a
+p d v 11
+stp edged-port enable
+int e0/0/2
+p l a
+p d v 12
+stp edged-port enable
+int g0/0/1
+p l t
+p t a v all
+int g0/0/2
+p l t
+p t a v all
+stp mode mstp
+stp region-configuration
+region-name coolice
+revision-level 1
+instance 11 vlan 11
+instance 12 vlan 12
+active region-configuration

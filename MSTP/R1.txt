@@ -1,0 +1,15 @@
+sys
+sys R1
+int g0/0/0
+ip ad 192.168.14.2 24
+int g0/0/1
+ip ad 192.168.15.2 24
+int g0/0/2
+ip ad 1.1.1.1 8
+q
+ip route-static 0.0.0.0 0 1.1.1.2
+ospf 1 
+default-route-advertise
+a 0
+net 192.168.0.0 0.0.255.255
+

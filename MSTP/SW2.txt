@@ -1,0 +1,39 @@
+sys
+sys SW2
+dhcp enable
+vlan batch 11 12 13 15
+int vlanif 12
+ip ad 192.168.12.1 24
+dhcp select int
+int vlanif 15
+ip ad 192.168.15.1 24
+int g0/0/1
+p l t
+p t a v all
+int g0/0/5
+p l t
+p t a v all
+int eth-trunk 0
+p l t 
+p t a v all
+int g0/0/3
+eth-trunk 0
+int g0/0/2
+eth-trunk 0
+int g0/0/4
+p l a
+p d v 15
+ospf 1 
+a 0
+net 192.168.0.0 0.0.255.255
+
+stp mode mstp
+stp region-configuration
+region-name coolice
+revision-level 1
+instance 11 vlan 11
+instance 12 vlan 12
+active region-configuration
+q
+stp instance 11 priority 4096
+stp instance 12 priority 0
